@@ -1,3 +1,25 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root Variables */
+:root {
+    --h1-font: 2.5rem;
+    --second-color: #aaa;
+    --text-color: #333;
+    --bg-color: #fff;
+    --btn-bg: #333;
+    --btn-hover-bg: transparent;
+    --btn-border-color: transparent;
+    --btn-hover-border-color: #333;
+    --btn-text-color: #fff;
+    --btn-hover-text-color: #333;
+}
+
+/* Navbar Styles */
 .navbar {
     display: flex;
     align-items: center;
@@ -20,23 +42,22 @@
 }
 
 .nav-links ul {
-    list-style: none; 
-    margin: 0; 
-    padding: 0; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     gap: 25px;
 }
 
 .nav-links a {
-    text-decoration: none; 
+    text-decoration: none;
     font-size: 14px;
     color: #2d2926;
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
 }
-
 
 .nav-links a:hover {
     color: orange;
@@ -80,8 +101,8 @@
 
 .nav-icons {
     display: flex;
-    align-items: center; 
-    gap: 15px; 
+    align-items: center;
+    gap: 15px;
 }
 
 .nav-icons a {
@@ -96,7 +117,7 @@
 }
 
 .nav-icons .hamburger:hover {
-    color: orange; 
+    color: orange;
 }
 
 .hamburger {
@@ -107,10 +128,11 @@
     color: #363633;
     transition: color 0.3s ease;
 }
+
 .hamburger-menu {
-    display: none; 
+    display: none;
     position: absolute;
-    top: 40px; 
+    top: 40px;
     right: 0;
     background-color: #ffffff;
     border: 1px solid #f9f9f9;
@@ -121,6 +143,7 @@
     gap: 10px;
     width: 150px;
 }
+
 .hamburger-menu a {
     display: block;
     padding: 10px 15px;
@@ -129,34 +152,13 @@
     font-size: 14px;
     transition: color 0.3s ease, background-color 0.3s ease;
 }
+
 .hamburger-menu a:hover {
     color: orange;
     background-color: #f8f7f2;
 }
 
-.nav-icons .hamburger:hover {
-    color: orange;
-}
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-:root {
-    --h1-font: 2.5rem;
-    --second-color: #aaa;
-    --text-color: #333;
-    --bg-color: #fff;
-    --btn-bg: #333;
-    --btn-hover-bg: transparent;
-    --btn-border-color: transparent;
-    --btn-hover-border-color: #333;
-    --btn-text-color: #fff;
-    --btn-hover-text-color: #333;
-}
-.section {
-    padding: 90px 14% 70px;
-}
+/* Hero Section */
 .home {
     position: relative;
     height: 100vh;
@@ -165,62 +167,72 @@
     background-position: center;
     display: flex;
     align-items: center;
-    justify-content:space-around; 
+    justify-content: space-around;
 }
+
 .home-text {
     padding-top: 60px;
 }
+
 .home-text h1 {
-    font-size: var(--h1-font, 2.5rem); 
+    font-size: var(--h1-font);
     font-weight: 700;
     line-height: 1.1;
     margin-bottom: 20px;
 }
+
 .home-text h6 {
     font-size: 15px;
     font-weight: 500;
-    color: var(--second-color, #aaa); 
+    color: var(--second-color);
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
+
 .home-text p {
     width: 100%;
     max-width: 560px;
-    font-size: var(--p-font, 1rem); 
+    font-size: var(--p-font, 1rem);
     font-weight: 400;
-    color: var(--second-color, #aaa); 
+    color: var(--second-color);
     line-height: 33px;
     margin-bottom: 35px;
 }
+
 .hero img {
     max-width: 100%;
     height: auto;
     object-fit: cover;
 }
+
 .btn {
     display: inline-block;
     padding: 14px 42px;
-    background-color: var(--text-color, #333); 
-    color: var(--bg-color, #fff); 
+    background-color: var(--text-color);
+    color: var(--bg-color);
     font-size: 15px;
     font-weight: 500;
     border: 2px solid transparent;
     transition: all 0.6s;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     text-decoration: none;
 }
 
-
 .btn:hover {
-    transform: scale(0.95) translateY(-4px); 
-    border: 2px solid var(--text-color, #333); 
+    transform: scale(0.95) translateY(-4px);
+    border: 2px solid var(--text-color);
     background: transparent;
-    color: var(--text-color, #333); 
+    color: var(--text-color);
 }
+
 .btn i {
     margin-left: 9px;
 }
+
+/* Media Queries */
+
+/* Mobile and smaller devices (max-width 768px) */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -234,56 +246,86 @@
         background-color: #ffffff;
         width: 100%;
         padding: 10px 0;
-        display: none; 
+        display: none;
         gap: 10px;
     }
 
     .nav-links ul.active {
-        display: flex; 
+        display: flex;
     }
 
     .dropdown-menu {
-        position: static; 
+        position: static;
+    }
 
     .dropdown:hover .dropdown-menu {
         display: block;
     }
+
+    /* Hero Section */
+    .home {
+        padding: 60px 10%;
+    }
+
+    .home-text h1 {
+        font-size: 2rem;
+    }
+
+    .home-text p {
+        font-size: 0.9rem;
+    }
+
+    .home-text {
+        padding-top: 40px;
+    }
+
+    .btn {
+        padding: 12px 32px;
+    }
+
+    .hero img {
+        object-fit: contain;
+    }
+
+    .brands a {
+        width: 60px;
+    }
 }
 
-.blink {
-    animation: blink-animation 1s infinite;
+/* Tablet devices (min-width 768px and max-width 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .home {
+        padding: 80px 10%;
+    }
+
+    .home-text h1 {
+        font-size: 2.2rem;
+    }
+
+    .home-text p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 14px 38px;
+    }
 }
 
-@keyframes blink-animation {
-    0% {
-        opacity: 1;
+/* Desktop and larger devices (min-width 1024px) */
+@media (min-width: 1024px) {
+    .home {
+        padding: 90px 14%;
     }
-    50% {
-        opacity: 0;
+
+    .home-text h1 {
+        font-size: 2.5rem;
     }
-    100% {
-        opacity: 1;
+
+    .home-text p {
+        font-size: 1.2rem;
     }
-}
-.home {
-    padding: 60px 10%; 
-}
-.home-text h1 {
-    font-size: 2rem;
-}
-.home-text p {
-    font-size: 0.9rem;
-}
-.home-text {
-    padding-top: 40px; 
-}
-.btn {
-    padding: 12px 32px; 
-}
-.hero img {
-    object-fit: contain; 
-}
-.brands a {
-    width: 60px; 
-}
+
+    .btn {
+        padding: 16px 42px;
+    }
 }
