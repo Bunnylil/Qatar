@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinks Signup</title>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer type="module"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <div class="logo">
+                <span class="Qatar">Qatar </span><span class="Beach Resort">Beach Resort</span>
+            </div>
+            <div class="welcome-text">
+                <h1>Welcome to Qatar Beach Resort</h1>
+                <p>Skip the store, not the flavor. Sign up for Qatar Beach Resort and get your Order delivered.</p>
+            </div>
+            <div class="image-gallery">
+                <img src="images/FOOD1.png" alt="rice" loading="lazy">
+                <img src="images/FOOD2.png" alt="rice" loading="lazy">
+                <img src="images/FOOD3.png" alt="rice" loading="lazy">
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="form-content">
+                <h2>Welcome Back</h2>
+                <p class="signin-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+
+                <form id="signinForm" action="#">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    
+                    <label for="password">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" name="password" placeholder="Your Password" required>
+                        <span id="password-toggle" class="password-toggle"></span>
+                    </div>
+                    
+                    <button type="submit" class="signin-btn">Sign in</button>
+                </form>
+                <p id="message" class="message"></p>
+
+                <div class="or-divider">
+                    <p>Or sign in with</p>
+                </div>
+                <div class="social-login">
+                    <button id="google-login-btn" class="google-button">
+                        <i class="fab fa-google"></i> Sign in with Google
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const passwordToggle = document.getElementById('password-toggle');
+
+        passwordToggle.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            passwordToggle.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+
+        // Handle form submission
+        document.getElementById('signinForm').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/signin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const data = await response.json();
+                const messageElem = document.getElementById('message');
+
+                if (response.ok) {
+                    messageElem.style.color = 'green';
+                    messageElem.textContent = data.message;
+                } else {
+                    messageElem.style.color = 'red';
+                    messageElem.textContent = data.message;
+                }
+            } catch (error) {
+                console.error('Error during sign-in:', error);
+                const messageElem = document.getElementById('message');
+                messageElem.style.color = 'red';
+                messageElem.textContent = 'Something went wrong. Please try again later.';
+            }
+        });
+    </script>
+</body>
+</html>
