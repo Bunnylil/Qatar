@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const images = [
-      'images/SHOE X.png',
-      'images/Shoe 1.png',
-      'images/Shoe 2.png',
+      'images/FOOD1.png',
+      'images/FOOD2.png',
+      'images/FOOD3.png',
     ];
     
     let currentImageIndex = 0;
