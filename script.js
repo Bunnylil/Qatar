@@ -26,10 +26,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     setInterval(function() {
       currentImageIndex = (currentImageIndex + 1) % images.length; 
-      document.getElementById('sneakerImage').src = images[currentImageIndex];
+      document.getElementById('foodImage').src = images[currentImageIndex];
     }, 5000); 
 
   function changeShoeImage(imageUrl) {
-      const shoeImage = document.getElementById('shoeImage');
+      const shoeImage = document.getElementById('foodImage');
       shoeImage.src = imageUrl;
   }
