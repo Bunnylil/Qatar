@@ -229,42 +229,29 @@
 .btn i {
     margin-left: 9px;
 }
-
-/* Media Queries */
-
-/* Mobile and smaller devices (max-width 768px) */
 @media (max-width: 768px) {
+    /* Hide regular nav links and show hamburger menu */
+    .nav-links {
+        display: none;
+    }
+
     .hamburger {
         display: block;
     }
 
-    .nav-links ul {
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: #ffffff;
-        width: 100%;
-        padding: 10px 0;
-        display: none;
-        gap: 10px;
-    }
-
-    .nav-links ul.active {
+    .hamburger-menu.active {
         display: flex;
     }
 
-    .dropdown-menu {
-        position: static;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        display: block;
-    }
-
-    /* Hero Section */
+    /* Adjust hero section for smaller screens */
     .home {
-        padding: 60px 10%;
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .home-text {
+        padding-top: 20px;
     }
 
     .home-text h1 {
@@ -275,57 +262,34 @@
         font-size: 0.9rem;
     }
 
-    .home-text {
-        padding-top: 40px;
-    }
-
-    .btn {
-        padding: 12px 32px;
-    }
-
     .hero img {
-        object-fit: contain;
+        width: 100%;
     }
 
-    .brands a {
-        width: 60px;
+    /* Adjust button size */
+    .btn {
+        padding: 10px 30px;
+        font-size: 14px;
     }
 }
 
-/* Tablet devices (min-width 768px and max-width 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
-    .home {
-        padding: 80px 10%;
+@media (max-width: 480px) {
+    /* Further adjustments for very small screens */
+    .home-text h1 {
+        font-size: 1.8rem;
     }
 
-    .home-text h1 {
-        font-size: 2.2rem;
+    .home-text h6 {
+        font-size: 12px;
     }
 
     .home-text p {
-        font-size: 1rem;
+        font-size: 0.8rem;
+        line-height: 1.5;
     }
 
     .btn {
-        padding: 14px 38px;
-    }
-}
-
-/* Desktop and larger devices (min-width 1024px) */
-@media (min-width: 1024px) {
-    .home {
-        padding: 90px 14%;
-    }
-
-    .home-text h1 {
-        font-size: 2.5rem;
-    }
-
-    .home-text p {
-        font-size: 1.2rem;
-    }
-
-    .btn {
-        padding: 16px 42px;
+        padding: 8px 20px;
+        font-size: 12px;
     }
 }
