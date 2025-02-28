@@ -1,0 +1,84 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const signupForm = document.getElementById('signupForm');
+    const message = document.getElementById('message');
+
+    signupForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        console.log('Form Data:', { name, email, password });
+
+        try {
+            const response = await fetch('http://localhost:5000/api/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, email, password })
+            });
+
+            const data = await response.json();
+            console.log('Response:', data);
+
+            if (response.ok) {
+                message.textContent = 'Signup successful!';
+                message.style.color = 'green';
+                signupForm.reset();  
+                
+               
+                setTimeout(() => {
+                    window.location.href = 'login.html';  
+                }, 2000); 
+            } else {
+                message.textContent = data.message || 'Signup failed';
+                message.style.color = 'red';
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            message.textContent = 'An error occurred. Please try again.';
+            message.style.color = 'red';
+        }
+    });
+});
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-analytics.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyCNBwv9EYZOpYau9RPflUey97vDoNLnVs8",
+    authDomain: "drinks-76337.firebaseapp.com",
+    projectId: "drinks-76337",
+    storageBucket: "drinks-76337.firebasestorage.app",
+    messagingSenderId: "360389301604",
+    appId: "1:360389301604:web:997a540b6a67b878709671",
+    measurementId: "G-CDEZWQ0D05"
+};
+
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+
+const auth = getAuth(app);
+auth.languageCode = 'en';
+const provider = new GoogleAuthProvider();
+
+const googleLogin = document.getElementById("google-login-btn");
+googleLogin.addEventListener("click", function() {
+    signInWithPopup(auth, provider)
+    .then((result) => {
+        const user = result.user;
+        console.log(user);
+        
+        
+        window.location.href = "login.html"; 
+    }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.customData.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        
+        console.error(errorCode, errorMessage, email);
+    });
+});

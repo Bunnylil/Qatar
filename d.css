@@ -1,0 +1,223 @@
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: #f8f7f2;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #2d2926;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: orange;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    border: 1px solid #f9f9f9;
+    padding: 10px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 5px 15px;
+    color: #2d2926;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    color: orange;
+    background-color: #f8f7f2;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown:hover > a {
+    border-bottom: 2px solid orange;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-icons a {
+    font-size: 18px;
+    color: #363633;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-icons a:hover {
+    color: orange;
+}
+
+.nav-icons .hamburger:hover {
+    color: orange;
+}
+
+.hamburger {
+    position: relative;
+    display: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #363633;
+    transition: color 0.3s ease;
+}
+
+.hamburger-menu {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 1000;
+    flex-direction: column;
+    gap: 10px;
+    width: 150px;
+}
+
+.hamburger-menu a {
+    display: block;
+    padding: 10px 15px;
+    color: #2d2926;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.hamburger-menu a:hover {
+    color: orange;
+    background-color: #f8f7f2;
+}
+
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.image-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.main-image {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.thumbnail {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.details-section {
+    flex: 1;
+    padding: 20px;
+    border-left: 1px solid #eee;
+}
+
+.product-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+.buy-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.buy-buttons button:first-child {
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.buy-buttons button:last-child {
+    background-color: black;
+    color: white;
+}
+
+
+
+.delivery {
+    color: #666;
+    font-size: 14px;
+}
+

@@ -1,0 +1,238 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.left-side {
+    flex: 1;
+    background-color: black;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.Qatar {
+    color: #FFCC00;
+}
+
+.BeachResort {
+    color: white;
+}
+
+.welcome-text {
+    margin-bottom: 40px;
+}
+
+.image-gallery img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+}
+
+.image-gallery img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
+}
+
+.right-side {
+    flex: 1;
+    background-color: white;
+    padding: 40px;
+}
+
+.form-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.signin-link a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+}
+
+.signin-link a:hover {
+    color: #FFCC00;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: calc(100% - 12px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    border-color: #FFCC00;
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #007bff;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.password-wrapper button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.password-wrapper button:hover {
+    color: #FFCC00;
+}
+p {
+    color: orange;
+}
+
+
+.signup-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #FFCC00, #FF9900);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.signup-btn:hover {
+    background: linear-gradient(135deg, #FF9900, #FF6600);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.signup-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.or-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 30px 0;
+    color: #999;
+}
+
+.or-divider::before,
+.or-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #ccc;
+    margin: 0 10px;
+}
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 12px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.google-button:hover {
+    background-color: #FFCC00;
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-side {
+        padding: 20px;
+    }
+
+    .right-side {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-content {
+        max-width: 100%;
+    }
+
+    .image-gallery img {
+        width: 60px;
+        height: 60px;
+    }
+}
